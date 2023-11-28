@@ -1,0 +1,27 @@
+<section>
+    <form>
+        <label for="framework">
+            Favorite Framework:
+            <input id="framework" type="text" [(ngModel)]="favoriteFramework" [ngModelOptions]="{standalone:true}"/>
+        </label>
+        <button (click)="sendForm()">Send info</button>
+    </form>
+    {{ favoriteFramework }}
+</section>
+<section>
+    <h1>Reactive form</h1>
+    <form [formGroup]="contactForm" (ngSubmit)="handleContactFormSubmit()">
+        <label>
+          Name
+          <input type="text" formControlName="name" />
+        </label>
+        <label>
+          Email
+          <input type="email" formControlName="email" />
+        </label>
+        <button type="submit" [disabled]="!contactForm.valid" >Submit</button>
+    </form>
+    <h2>Profile Form</h2>
+    <p>Name: {{ contactForm.value.name }}</p>
+    <p>Email: {{ contactForm.value.email }}</p>
+</section>

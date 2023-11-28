@@ -1,0 +1,18 @@
+<section>
+    <h1>Hello {{ username }}, you are a {{ occupation }}
+    </h1>
+    @if(doesUserExist) {
+        <p>Congratulations! You Do Exist =)</p>
+    }@else{
+        <p>Sorry, you don't exist =(</p>
+    }
+    
+    <h2>He're your operating system</h2>
+    <ul>
+        @for (os of operatingSystems; track os.id) {
+            <li (mouseover)="onMouseOver(os.name)" >{{ os.name | uppercase }}</li>
+        }
+    </ul>
+    <div class="editable-div" [contentEditable]="isEditable"></div>
+    <button (click)="emitToParent()">Message to parent</button>
+</section>
